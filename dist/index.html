@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>My Recipes</title>
+</head>
+<body>
+  <div class="container">
+    <div class="search-container">
+      <div><img src="https://dcassetcdn.com/design_img/10150/16906/16906_294312_10150_image.jpg" height="200px"width="400px"></div>
+      <div>
+        <input type="text" placeHolder="Search Ingredient">
+        <button class="btn search-btn">Search</button>
+      </div>
+      <div>
+        <input type="checkbox" onclick="filterDairy(event)">
+        <label>Dairy</label>
+        <input type="checkbox" onclick="filterGluten(event)">
+        <label>Gluten</label>
+      </div>
+    </div>
+    <div class="recipes"></div>
+    <script id="recipes-template" type="text/x-handlebars-template">
+          {{#each recipes}}
+            <div class="recipe"  data-id-meal="{{id}}">
+              <h2 class="title">
+                <a href={{href}}> {{title}}</a></h2>
+              <div>
+                <div class="thumbnail-container">
+                  <img src={{thumbnail}} alt="Thumbnail"/>
+                </div>
+                <p>Ingredients of  {{title}}:</p>
+                <ul class="ingredients">
+                  {{#each ingredients}}
+                    <li>{{this}}</li>
+                  {{/each}}
+                </ul>
+              </div>
+            </div>
+          {{/each}}
+          </div>
+      </script>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+    <script src="renderer.js"></script>
+    <script src="main.js"></script>
+  </div>
+</body>
+</html>
