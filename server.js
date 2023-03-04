@@ -2,7 +2,7 @@ const express = require("express")
 const app = express()
 const path = require("path")
 const port = 3333
-const api = require("./server/routes/api")
+const api = require("./server/api")
 const bodyParser = require("body-parser")
 
 app.use(bodyParser.json())
